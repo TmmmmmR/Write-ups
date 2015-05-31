@@ -1,4 +1,4 @@
-# NET400 : PORT KNOCKING
+# NET250 : PORT KNOCKING
 
 1. Brute force the knock sequence :
 
