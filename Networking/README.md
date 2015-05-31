@@ -10,15 +10,6 @@ tmr@desktop:~# python knock_brute.py
 	[+] Sending tcp packet to :13467
 [+] Trying sequence :('tcp:11428',)
 	[+] Sending tcp packet to :11428
-^C[+] Trying sequence :('tcp:43188',)
-	[+] Sending tcp packet to :43188
-[+] Trying sequence :('tcp:29147',)
-	[+] Sending tcp packet to :29147
-[+] Trying sequence :('udp:12375',)
-	[+] Sending udp packet to :12375
-[+] Trying sequence :('tcp:9678',)
-	[+] Sending tcp packet to :9678
-
 
 ...
 
@@ -58,8 +49,8 @@ individual files in /usr/share/doc/*/copyright.
 Debian GNU/Linux comes with ABSOLUTELY NO WARRANTY, to the extent
 permitted by applicable law.
 Last login: Mon May 25 14:20:00 2015 from 192.168.121.130
-Flag_KNOCK8KNOCK_9RIB
+Flag_KNOCK_KNOCK_9RIB
 Connection to 192.168.121.129 closed.
 ```
 
-The flag was "Flag_KNOCK8KNOCK_9RIB".
+The flag was "Flag_KNOCK_KNOCK_9RIB".
