@@ -12,8 +12,6 @@ def get_query_result(base_url,payload,success_text):
 BASE_URL = "http://localhost/index.php"
 SUCCESS_TEXT = "Attack Detected !"
 
-table_name="FLAG_"
-brute = True
 guess = False
 
 for str in range(0,255):

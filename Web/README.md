@@ -7,10 +7,10 @@ What a DBA team : Shakespeare and Einstein ...
 But who they will name tables ? that'is the question"
 
 ## Solution
-According to the challenge description, the flag in the name of a table (starting with FLAG_).
+According to the challenge description, the flag is the name of a table (starting with FLAG_).
 So We need to exploit an SQL injection to resolve this challenge.
 
-We start by injecting a simple quote in the id parametr using the following HTTP request :
+We start by injecting a simple quote in the "id" parametr using the following HTTP request :
 
 ```
 GET /index.php?id=%27 HTTP/1.1
