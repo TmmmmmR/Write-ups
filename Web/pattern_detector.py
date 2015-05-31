@@ -1,3 +1,4 @@
+#Author : tmr (Abdessamad TEMMAR)
 import requests
 import string
 
@@ -8,7 +9,7 @@ def get_query_result(base_url,payload,success_text):
         else:
                 return False
 
-BASE_URL = "http://localhost/demo/index.php"
+BASE_URL = "http://localhost/index.php"
 SUCCESS_TEXT = "Attack Detected !"
 
 table_name="FLAG_"

