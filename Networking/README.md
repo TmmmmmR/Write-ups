@@ -31,7 +31,7 @@ tmr@desktop:~# python knock_brute.py
 tmr@desktop:~# cat exploit.sh 
 #!/bin/sh
 my_server=$1
-knock $my_server 1992:udp 13496:tcp udp:7897:udp
+knock $my_server 1992:udp 13496:tcp 7897:udp
 ssh $my_server -lknock
 ```
 
